@@ -26,6 +26,8 @@ namespace Phalcon\Forms {
 
 		protected $_options;
 
+		protected $_messages;
+
 		/**
 		 * \Phalcon\Forms\Element constructor
 		 *
@@ -79,6 +81,15 @@ namespace Phalcon\Forms {
 
 
 		/**
+		 * Adds a filter to current list of filters
+		 *
+		 * @param string $filter
+		 * @return \Phalcon\Forms\ElementInterface
+		 */
+		public function addFilter($filter){ }
+
+
+		/**
 		 * Returns the element's filters
 		 *
 		 * @return mixed
@@ -113,13 +124,14 @@ namespace Phalcon\Forms {
 
 
 		/**
-		 * Returns an array of attributes for  prepared attributes for \Phalcon\Tag helpers
+		 * Returns an array of prepared attributes for \Phalcon\Tag helpers
 		 * according to the element's parameters
 		 *
 		 * @param array $attributes
+		 * @param boolean $useChecked
 		 * @return array
 		 */
-		public function prepareAttributes($attributes=null){ }
+		public function prepareAttributes($attributes=null, $useChecked=null){ }
 
 
 		/**
@@ -257,12 +269,37 @@ namespace Phalcon\Forms {
 
 
 		/**
-		 * Returns the messages that belongs to the element
-		 * The element needs to be attached to a form
+		 * Checks whether there are messages attached to the element
 		 *
 		 * @return boolean
 		 */
 		public function hasMessages(){ }
+
+
+		/**
+		 * Sets the validation messages related to the element
+		 *
+		 * @param \Phalcon\Validation\Message\Group $group
+		 * @return \Phalcon\Forms\ElementInterface
+		 */
+		public function setMessages($group){ }
+
+
+		/**
+		 * Appends a message to the internal message list
+		 *
+		 * @param \Phalcon\Validation\Message $message
+		 * @return \Phalcon\Forms\ElementInterface
+		 */
+		public function appendMessage($message){ }
+
+
+		/**
+		 * Clears every element in the form to its default value
+		 *
+		 * @return \Phalcon\Forms\Element
+		 */
+		public function clear(){ }
 
 
 		/**

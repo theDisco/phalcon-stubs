@@ -8,16 +8,16 @@ namespace Phalcon\Mvc\Model {
 	 * This components controls the initialization of models, keeping record of relations
 	 * between the different models of the application.
 	 *
-	 * A ModelsManager is injected to a model via a Dependency Injector Container such as Phalcon\DI.
+	 * A ModelsManager is injected to a model via a Dependency Injector/Services Container such as Phalcon\DI.
 	 *
 	 * <code>
-	 * $dependencyInjector = new Phalcon\DI();
+	 * $di = new Phalcon\DI();
 	 *
-	 * $dependencyInjector->set('modelsManager', function(){
+	 * $di->set('modelsManager', function() {
 	 *      return new Phalcon\Mvc\Model\Manager();
 	 * });
 	 *
-	 * $robot = new Robots($dependencyInjector);
+	 * $robot = new Robots($di);
 	 * </code>
 	 */
 	
@@ -47,6 +47,10 @@ namespace Phalcon\Mvc\Model {
 
 		protected $_belongsToSingle;
 
+		protected $_hasManyToMany;
+
+		protected $_hasManyToManySingle;
+
 		protected $_initialized;
 
 		protected $_sources;
@@ -64,6 +68,8 @@ namespace Phalcon\Mvc\Model {
 		protected $_keepSnapshots;
 
 		protected $_dynamicUpdate;
+
+		protected $_namespaceAliases;
 
 		/**
 		 * Sets the DependencyInjector container
@@ -356,7 +362,19 @@ namespace Phalcon\Mvc\Model {
 		public function addHasMany($model, $fields, $referencedModel, $referencedFields, $options=null){ }
 
 
-		public function addHasManyThrough(){ }
+		/**
+		 * Setups a relation n-m between two models
+		 *
+		 * @param string $fields
+		 * @param string $intermediateModel
+		 * @param string $intermediateFields
+		 * @param string $intermediateReferencedFields
+		 * @param string $referencedModel
+		 * @param string $referencedFields
+		 * @param   array $options
+		 * @return  \Phalcon\Mvc\Model\Relation
+		 */
+		public function addHasManyToMany($model, $fields, $intermediateModel, $intermediateFields, $intermediateReferencedFields, $referencedModel, $referencedFields, $options=null){ }
 
 
 		/**
@@ -387,6 +405,16 @@ namespace Phalcon\Mvc\Model {
 		 * @return 	boolean
 		 */
 		public function existsHasOne($modelName, $modelRelation){ }
+
+
+		/**
+		 * Checks whether a model has a hasManyToMany relation with another model
+		 *
+		 * @param 	string $modelName
+		 * @param 	string $modelRelation
+		 * @return 	boolean
+		 */
+		public function existsHasManyToMany($modelName, $modelRelation){ }
 
 
 		/**
@@ -510,6 +538,15 @@ namespace Phalcon\Mvc\Model {
 
 
 		/**
+		 * Gets hasManyToMany relations defined on a model
+		 *
+		 * @param  \Phalcon\Mvc\ModelInterface $model
+		 * @return \Phalcon\Mvc\Model\RelationInterface[]
+		 */
+		public function getHasManyToMany($model){ }
+
+
+		/**
 		 * Gets hasOne relations defined on a model
 		 *
 		 * @param  \Phalcon\Mvc\ModelInterface $model
@@ -566,11 +603,43 @@ namespace Phalcon\Mvc\Model {
 
 
 		/**
-		 * Returns the last query created or executed in the models manager
+		 * Returns the lastest query created or executed in the models manager
 		 *
 		 * @return \Phalcon\Mvc\Model\QueryInterface
 		 */
 		public function getLastQuery(){ }
+
+
+		/**
+		 * Registers shorter aliases for namespaces in PHQL statements
+		 *
+		 * @param string $alias
+		 * @param string $namespace
+		 */
+		public function registerNamespaceAlias($alias, $namespace){ }
+
+
+		/**
+		 * Returns a real namespace from its alias
+		 *
+		 * @param string $alias
+		 * @return string
+		 */
+		public function getNamespaceAlias($alias){ }
+
+
+		/**
+		 * Returns all the registered namespace aliases
+		 *
+		 * @return array
+		 */
+		public function getNamespaceAliases(){ }
+
+
+		/**
+		 * Destroys the PHQL cache
+		 */
+		public function __destruct(){ }
 
 	}
 }

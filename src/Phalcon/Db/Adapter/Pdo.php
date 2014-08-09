@@ -150,6 +150,7 @@ namespace Phalcon\Db\Adapter {
 		 *
 		 *<code>
 		 *	$escapedTable = $connection->escapeIdentifier('robots');
+		 *	$escapedTable = $connection->escapeIdentifier(array('store', 'robots'));
 		 *</code>
 		 *
 		 * @param string $identifier
@@ -159,7 +160,7 @@ namespace Phalcon\Db\Adapter {
 
 
 		/**
-		 * Escapes a value to avoid SQL injections
+		 * Escapes a value to avoid SQL injections according to the active charset in the connection
 		 *
 		 *<code>
 		 *	$escapedStr = $connection->escapeString('some dangerous value');
@@ -209,25 +210,28 @@ namespace Phalcon\Db\Adapter {
 		/**
 		 * Starts a transaction in the connection
 		 *
+		 * @param boolean $nesting
 		 * @return boolean
 		 */
-		public function begin(){ }
+		public function begin($nesting=null){ }
 
 
 		/**
 		 * Rollbacks the active transaction in the connection
 		 *
+		 * @param boolean $nesting
 		 * @return boolean
 		 */
-		public function rollback(){ }
+		public function rollback($nesting=null){ }
 
 
 		/**
 		 * Commits the active transaction in the connection
 		 *
+		 * @param boolean $nesting
 		 * @return boolean
 		 */
-		public function commit(){ }
+		public function commit($nesting=null){ }
 
 
 		/**

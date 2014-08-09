@@ -10,12 +10,39 @@ namespace Phalcon\Assets {
 	
 	class Manager {
 
+		protected $_options;
+
 		protected $_collections;
 
 		protected $_implicitOutput;
 
 		/**
-		 * Sets if the html generated must be directly printed or returned
+		 * \Phalcon\Assets\Manager constructor
+		 *
+		 * @param array $options
+		 */
+		public function __construct($options=null){ }
+
+
+		/**
+		 * Sets the manager's options
+		 *
+		 * @param array $options
+		 * @return \Phalcon\Assets\Manager
+		 */
+		public function setOptions($options){ }
+
+
+		/**
+		 * Returns the manager's options
+		 *
+		 * @return array
+		 */
+		public function getOptions(){ }
+
+
+		/**
+		 * Sets if the HTML generated must be directly printed or returned
 		 *
 		 * @param boolean $implicitOutput
 		 * @return \Phalcon\Assets\Manager
@@ -26,21 +53,35 @@ namespace Phalcon\Assets {
 		/**
 		 * Adds a Css resource to the 'css' collection
 		 *
+		 *<code>
+		 *	$assets->addCss('css/bootstrap.css');
+		 *	$assets->addCss('http://bootstrap.my-cdn.com/style.css', false);
+		 *</code>
+		 *
 		 * @param string $path
 		 * @param boolean $local
+		 * @param boolean $filter
+		 * @param array $attributes
 		 * @return \Phalcon\Assets\Manager
 		 */
-		public function addCss($path, $local=null){ }
+		public function addCss($path, $local=null, $filter=null, $attributes=null){ }
 
 
 		/**
 		 * Adds a javascript resource to the 'js' collection
 		 *
+		 *<code>
+		 *	$assets->addJs('scripts/jquery.js');
+		 *	$assets->addJs('http://jquery.my-cdn.com/jquery.js', true);
+		 *</code>
+		 *
 		 * @param string $path
 		 * @param boolean $local
+		 * @param boolean $filter
+		 * @param array $attributes
 		 * @return \Phalcon\Assets\Manager
 		 */
-		public function addJs($path, $local=null){ }
+		public function addJs($path, $local=null, $filter=null, $attributes=null){ }
 
 
 		/**
@@ -52,7 +93,7 @@ namespace Phalcon\Assets {
 		 *
 		 * @param string $type
 		 * @param \Phalcon\Assets\Resource $resource
-		  * @return \Phalcon\Assets\Manager
+		 * @return \Phalcon\Assets\Manager
 		 */
 		public function addResourceByType($type, $resource){ }
 
@@ -65,7 +106,7 @@ namespace Phalcon\Assets {
 		 *</code>
 		 *
 		 * @param \Phalcon\Assets\Resource $resource
-		  * @return \Phalcon\Assets\Manager
+		 * @return \Phalcon\Assets\Manager
 		 */
 		public function addResource($resource){ }
 
@@ -120,6 +161,15 @@ namespace Phalcon\Assets {
 		 * @return \Phalcon\Assets\Collection
 		 */
 		public function collection($name){ }
+
+
+		/**
+		 * Traverses a collection calling the callback to generate its HTML
+		 *
+		 * @param \Phalcon\Assets\Collection $collection
+		 * @param callback $callback
+		 */
+		public function output($collection, $callback){ }
 
 
 		/**

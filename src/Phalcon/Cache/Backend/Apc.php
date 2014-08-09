@@ -5,7 +5,7 @@ namespace Phalcon\Cache\Backend {
 	/**
 	 * Phalcon\Cache\Backend\Apc
 	 *
-	 * Allows to cache output fragments, PHP data and raw data using a memcache backend
+	 * Allows to cache output fragments, PHP data and raw data using an APC backend
 	 *
 	 *<code>
 	 *	//Cache data for 2 days

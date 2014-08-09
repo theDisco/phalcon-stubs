@@ -73,12 +73,15 @@ namespace Phalcon\Mvc\Model {
 
 		protected $_bindTypes;
 
+		protected static $_irPhqlCache;
+
 		/**
 		 * \Phalcon\Mvc\Model\Query constructor
 		 *
 		 * @param string $phql
+		 * @param \Phalcon\DiInterface $dependencyInjector
 		 */
-		public function __construct($phql=null){ }
+		public function __construct($phql=null, $dependencyInjector=null){ }
 
 
 		/**
@@ -98,7 +101,7 @@ namespace Phalcon\Mvc\Model {
 
 
 		/**
-		 * Tells to the query if only the first row in the resultset must be resturned
+		 * Tells to the query if only the first row in the resultset must be returned
 		 *
 		 * @param boolean $uniqueRow
 		 * @return \Phalcon\Mvc\Model\Query
@@ -191,7 +194,33 @@ namespace Phalcon\Mvc\Model {
 
 
 		/**
-		 * Resolves all the JOINS in a SELECT statement
+		 * Resolves joins involving has-one/belongs-to/has-many relations
+		 *
+		 * @param string $joinType
+		 * @param string $joinSource
+		 * @param string $modelAlias
+		 * @param string $joinAlias
+		 * @param \Phalcon\Mvc\Model\RelationInterface $relation
+		 * @return array
+		 */
+		protected function _getSingleJoin(){ }
+
+
+		/**
+		 * Resolves joins involving many-to-many relations
+		 *
+		 * @param string $joinType
+		 * @param string $joinSource
+		 * @param string $modelAlias
+		 * @param string $joinAlias
+		 * @param \Phalcon\Mvc\Model\RelationInterface $relation
+		 * @return array
+		 */
+		protected function _getMultiJoin(){ }
+
+
+		/**
+		 * Processes the JOINs in the query returning an internal representation for the database dialect
 		 *
 		 * @param array $select
 		 * @return array
@@ -253,8 +282,6 @@ namespace Phalcon\Mvc\Model {
 		 * Parses the intermediate code produced by \Phalcon\Mvc\Model\Query\Lang generating another
 		 * intermediate representation that could be executed by \Phalcon\Mvc\Model\Query
 		 *
-		 * @param \Phalcon\Mvc\Model\ManagerInterface $manager
-		 * @param \Phalcon\Mvc\Model\MetaDataInterface $metaData
 		 * @return array
 		 */
 		public function parse(){ }

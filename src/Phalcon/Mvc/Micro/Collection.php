@@ -23,7 +23,7 @@ namespace Phalcon\Mvc\Micro {
 	 *
 	 */
 	
-	class Collection {
+	class Collection implements \Phalcon\Mvc\Micro\CollectionInterface {
 
 		protected $_prefix;
 

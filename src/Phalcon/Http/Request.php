@@ -118,7 +118,7 @@ namespace Phalcon\Http {
 
 
 		/**
-		 * Checks whether $_SERVER superglobal has certain index
+		 * Checks whether $_REQUEST superglobal has certain index
 		 *
 		 * @param string $name
 		 * @return boolean
@@ -136,7 +136,7 @@ namespace Phalcon\Http {
 
 
 		/**
-		 * Checks whether $_SERVER superglobal has certain index
+		 * Checks whether $_GET superglobal has certain index
 		 *
 		 * @param string $name
 		 * @return boolean
@@ -200,6 +200,14 @@ namespace Phalcon\Http {
 		 * @return string
 		 */
 		public function getRawBody(){ }
+
+
+		/**
+		 * Gets decoded JSON HTTP raw request body
+		 *
+		 * @return string
+		 */
+		public function getJsonRawBody(){ }
 
 
 		/**
@@ -332,6 +340,14 @@ namespace Phalcon\Http {
 		 * @return \Phalcon\Http\Request\File[]
 		 */
 		public function getUploadedFiles($notErrored=null){ }
+
+
+		/**
+		 * Returns the available headers in the request
+		 *
+		 * @return array
+		 */
+		public function getHeaders(){ }
 
 
 		/**

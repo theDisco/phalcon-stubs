@@ -176,9 +176,9 @@ namespace Phalcon\Mvc {
 		/**
 		 * Writes an attribute value by its name
 		 *
-		 * <code>
+		 *<code>
 		 *	$robot->writeAttribute('name', 'Rosey');
-		 * </code>
+		 *</code>
 		 *
 		 * @param string $attribute
 		 * @param mixed $value
@@ -474,7 +474,7 @@ namespace Phalcon\Mvc {
 		 *</code>
 		 *
 		 * @param array $parameters
-		 * @return array
+		 * @return int
 		 */
 		public static function count($parameters=null){ }
 
@@ -486,6 +486,17 @@ namespace Phalcon\Mvc {
 		 * @return array
 		 */
 		public static function aggregate($parameters){ }
+
+
+		/**
+		 * Allows to perform a summatory group for a column in the collection
+		 *
+		 * @param string $field
+		 * @param array $conditions
+		 * @param string $finalize
+		 * @return array
+		 */
+		public static function summatory($field, $conditions=null, $finalize=null){ }
 
 
 		/**
