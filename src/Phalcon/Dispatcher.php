@@ -59,6 +59,10 @@ namespace Phalcon {
 
 		protected $_isExactHandler;
 
+		protected $_previousHandlerName;
+
+		protected $_previousActionName;
+
 		/**
 		 * \Phalcon\Dispatcher constructor
 		 */
@@ -210,7 +214,7 @@ namespace Phalcon {
 		 * @param  mixed $defaultValue
 		 * @return mixed
 		 */
-		public function getParam($param, $filters=null, $defaultValue=null){ }
+		public function getParam($param, $filters=null){ }
 
 
 		/**

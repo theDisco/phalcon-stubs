@@ -91,6 +91,9 @@ namespace Phalcon\Mvc {
 		 * Handles a user exception
 		 *
 		 * @param \Exception $exception
+		 *
+		 * @warning If any additional logic is to be implemented here, please check
+		 * phalcon_dispatcher_fire_event() first
 		 */
 		protected function _handleException(){ }
 
@@ -117,6 +120,22 @@ namespace Phalcon\Mvc {
 		 * @return \Phalcon\Mvc\ControllerInterface
 		 */
 		public function getActiveController(){ }
+
+
+		/**
+		 * Returns the previous controller in the dispatcher
+		 *
+		 * @return string
+		 */
+		public function getPreviousControllerName(){ }
+
+
+		/**
+		 * Returns the previous action in the dispatcher
+		 *
+		 * @return string
+		 */
+		public function getPreviousActionName(){ }
 
 	}
 }

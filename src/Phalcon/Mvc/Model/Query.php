@@ -81,7 +81,7 @@ namespace Phalcon\Mvc\Model {
 		 * @param string $phql
 		 * @param \Phalcon\DiInterface $dependencyInjector
 		 */
-		public function __construct($phql=null, $dependencyInjector=null){ }
+		public function __construct($phql){ }
 
 
 		/**
@@ -246,6 +246,9 @@ namespace Phalcon\Mvc\Model {
 		protected function _getGroupClause(){ }
 
 
+		protected function _getLimitClause(){ }
+
+
 		/**
 		 * Analyzes a SELECT intermediate code and produces an array to be executed later
 		 *
@@ -383,7 +386,7 @@ namespace Phalcon\Mvc\Model {
 		 *
 		 * @param array $bindParams
 		 * @param array $bindTypes
-		 * @return \Phalcon\Mvc\ModelInterface
+		 * @return Ṕhalcon\Mvc\ModelInterface
 		 */
 		public function getSingleResult($bindParams=null, $bindTypes=null){ }
 

@@ -93,7 +93,7 @@ namespace Phalcon\Mvc\Model {
 
 
 		/**
-		 * Adds a INNER join to the query
+		 * Adds a join to the query
 		 *
 		 *<code>
 		 *	$criteria->join('Robots');
@@ -167,7 +167,7 @@ namespace Phalcon\Mvc\Model {
 		 * @param array $bindTypes
 		 * @return \Phalcon\Mvc\Model\CriteriaInterface
 		 */
-		public function where($conditions, $bindParams=null, $bindTypes=null){ }
+		public function where($conditions){ }
 
 
 		/**
@@ -381,6 +381,16 @@ namespace Phalcon\Mvc\Model {
 		 * @return \Phalcon\Mvc\Model\ResultsetInterface
 		 */
 		public function execute(){ }
+
+
+		/**
+		 * Sets the cache options in the criteria
+		 * This method replaces all previously set cache options
+		 *
+		 * @param array $options
+		 * @return \Phalcon\Mvc\Model\CriteriaInterface
+		 */
+		public function cache($option){ }
 
 	}
 }
