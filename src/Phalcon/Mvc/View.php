@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 namespace Phalcon\Mvc {
 
@@ -23,7 +23,7 @@ namespace Phalcon\Mvc {
 	 * echo $view->getContent();
 	 * </code>
 	 */
-
+	
 	class View extends \Phalcon\DI\Injectable implements \Phalcon\Events\EventsAwareInterface, \Phalcon\DI\InjectionAwareInterface, \Phalcon\Mvc\ViewInterface {
 
 		const LEVEL_MAIN_LAYOUT = 5;
