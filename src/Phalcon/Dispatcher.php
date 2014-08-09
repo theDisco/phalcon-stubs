@@ -57,6 +57,8 @@ namespace Phalcon {
 
 		protected $_actionSuffix;
 
+		protected $_isExactHandler;
+
 		/**
 		 * \Phalcon\Dispatcher constructor
 		 */

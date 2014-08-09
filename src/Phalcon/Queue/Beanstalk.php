@@ -33,7 +33,6 @@ namespace Phalcon\Queue {
 		 *
 		 * @param string $data
 		 * @param array $options
-		 * @return string|boolean
 		 */
 		public function put($data, $options=null){ }
 
@@ -41,7 +40,7 @@ namespace Phalcon\Queue {
 		/**
 		 * Reserves a job in the queue
 		 *
-		 * @return boolean|\Phalcon\Queue\Beanstalk\Job
+		 * @return boolean|Phalcon\Queue\Beanstalk\Job
 		 */
 		public function reserve($timeout=null){ }
 
@@ -67,7 +66,7 @@ namespace Phalcon\Queue {
 		/**
 		 * Inspect the next ready job.
 		 *
-		 * @return boolean|\Phalcon\Queue\Beanstalk\Job
+		 * @return boolean|Phalcon\Queue\Beanstalk\Job
 		 */
 		public function peekReady(){ }
 

@@ -133,13 +133,6 @@ namespace Phalcon\Http {
 		 * @return string
 		 */
 		public function getRawBody();
-		
-		/**
-		* Gets decoded JSON HTTP raw request body
-		*
-		* @return mixed
-		*/
-		public function getJsonRawBody();
 
 
 		/**

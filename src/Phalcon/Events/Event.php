@@ -95,8 +95,6 @@ namespace Phalcon\Events {
 
 		/**
 		 * Check whether the event is currently stopped
-		 * 
-		 * @return boolean
 		 */
 		public function isStopped(){ }
 

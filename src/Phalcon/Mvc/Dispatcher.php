@@ -46,8 +46,6 @@ namespace Phalcon\Mvc {
 
 		protected $_defaultAction;
 
-		protected $_isExactControllerName;
-
 		/**
 		 * Sets the default controller suffix
 		 *
