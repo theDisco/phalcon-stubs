@@ -1,0 +1,21 @@
+{
+    "name": "popeye/phalcon-stubs",
+    "type": "stub",
+    "description": "Stubs for Phalcon framework that can be used for autocompletion in IDE",
+    "keywords": ["phalcon", "framework", "stubs"],
+    "homepage": "http://github.com/theDisco/phalcon-stubs",
+    "license": "New BSD",
+    "support": {
+        "issues": "https://github.com/theDisco/phalcon-stubs/issues"
+    },
+    "authors": [
+        {
+            "name": "Wojtek Gancarczyk",
+            "email": "wojtek@aferalabs.com",
+            "homepage": "http://www.aferalabs.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2"
+    }
+}
